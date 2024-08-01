@@ -1,34 +1,62 @@
------------------------
-# README
------------------------
-Browny is a one page bootstrap 3 based resume/portfolio template.
+
+TITLE: 
+Wedding - 100% Fully Responsive Free HTML5 Bootstrap Template
+
+AUTHOR:
+DESIGNED & DEVELOPED by GetTemplates.co
+
+Website: http://gettemplates.co/
+Twitter: http://twitter.com/gettemplatesco
+Facebook: http://facebook.com/gettemplatesco
 
 
-Template Info:
------------------------
-Name: 		Browny - Free Bootstrap One Page Portfolio Resume Tempalte
-Version: 	1.0
-Author: 	ThemeSINE
-Website: 	https://www.themesine.com/
+CREDITS:
 
+Bootstrap
+http://getbootstrap.com/
 
-Changelog:
------------------------
-Version 1.0 14-05-2018
-- initial release 
+jQuery
+http://jquery.com/
 
+jQuery Easing
+http://gsgd.co.uk/sandbox/jquery/easing/
 
-Credits:
------------------------
-- Twitter Bootstrap http://getbootstrap.com
-- jQuery http://jquery.org
-- Modernizr https://modernizr.com/
-- Sticky.js http://stickyjs.com/
-- JQuery easing https://github.com/gdsmith/jquery.easing
-- Bootsnav http://bootsnav.danurstrap.com/
-- Pexels https://www.pexels.com/
-- Unsplash https://unsplash.com/
+Modernizr
+http://modernizr.com/
 
-License:
------------------------
-This template is under Free License - https://www.themesine.com/license/
+Google Fonts
+https://www.google.com/fonts/
+
+Google Map
+http://maps.google.com/
+
+Icomoon
+https://icomoon.io/app/
+
+Respond JS
+https://github.com/scottjehl/Respond/blob/master/LICENSE-MIT
+
+animate.css
+http://daneden.me/animate
+
+jQuery Waypoint
+https://github.com/imakewebthings/waypoints/blog/master/licenses.txt
+
+Owl Carousel
+http://www.owlcarousel.owlgraphic.com/
+
+jQuery countTo
+http://www.owlcarousel.owlgraphic.com/
+
+Stellar Parallax
+http://markdalgleish.com/projects/stellar.js/
+
+Magnific Popup
+http://dimsemenov.com/plugins/magnific-popup/
+
+SimplyCountDown JS
+http://vincentloy.github.io/simplyCountdown.js/
+
+Demo Images:
+http://unsplash.com
+
