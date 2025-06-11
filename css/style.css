@@ -5,11 +5,15 @@
   font-weight: normal;
   font-style: normal;
 }
+
+
 /* =======================================================
 *
 * 	Template Style 
 *
 * ======================================================= */
+
+
 body {
   font-family: "Work Sans", Arial, sans-serif;
   font-weight: 400;
@@ -24,18 +28,12 @@ body {
   overflow-x: hidden;
   width: 100%;
   height: 100%;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
 }
 .offcanvas #page {
   overflow: hidden;
   position: absolute;
 }
 .offcanvas #page:after {
-  -webkit-transition: 2s;
-  -o-transition: 2s;
-  transition: 2s;
   position: absolute;
   top: 0;
   right: 0;
@@ -48,9 +46,6 @@ body {
 
 a {
   color: #951427;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
 }
 a:hover, a:active, a:focus {
   color: #951427;
@@ -94,7 +89,7 @@ h1, h2, h3, h4, h5, h6, figure {
   z-index: 1001;
 }
 @media screen and (max-width: 768px) {
-  .fh5co-nav {
+ .fh5co-nav {
     padding: 20px 0;
   }
 }
@@ -129,9 +124,6 @@ h1, h2, h3, h4, h5, h6, figure {
   padding: 30px 10px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5);
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
 }
 .fh5co-nav ul li a:hover, .fh5co-nav ul li a:focus, .fh5co-nav ul li a:active {
   color: white;
@@ -157,9 +149,6 @@ h1, h2, h3, h4, h5, h6, figure {
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
   border-radius: 4px;
-  -webkit-transition: 0s;
-  -o-transition: 0s;
-  transition: 0s;
 }
 .fh5co-nav ul li.has-dropdown .dropdown:before {
   bottom: 100%;
@@ -205,9 +194,6 @@ h1, h2, h3, h4, h5, h6, figure {
   display: inline-block;
   zoom: 1;
   display: inline;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   -ms-border-radius: 100px;
@@ -226,7 +212,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-event,
 .fh5co-bg {
   background-size: cover;
-  background-position: top center;
+  background-position: center center;
   background-repeat: no-repeat;
   position: relative;
 }
@@ -238,14 +224,20 @@ h1, h2, h3, h4, h5, h6, figure {
   float: left;
   position: relative;
 }
+@media screen and (max-width: 768px) {
+  #fh5co-event .fh5co-bg {
+    background-size: contain;
+    /* THIS FOR SOME REASON ISNT CHANGING MOBILE ONLY */
+  }
+}
 
 .fh5co-video {
   height: 450px;
   overflow: hidden;
-  -webkit-border-radius: 7px;
-  -moz-border-radius: 7px;
-  -ms-border-radius: 7px;
-  border-radius: 7px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  border-radius: 1px;
 }
 .fh5co-video a {
   z-index: 1001;
@@ -280,9 +272,6 @@ h1, h2, h3, h4, h5, h6, figure {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
 }
 .fh5co-video:hover .overlay {
   background: rgba(0, 0, 0, 0.7);
@@ -318,7 +307,8 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover {
-    height: 600px;
+    height: 720px;
+    background-position: center;
   }
 }
 .fh5co-cover .display-t,
@@ -381,6 +371,8 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 #fh5co-event .fh5co-heading p {
   color: rgb(255, 255, 255);
+  margin-bottom: -45px;
+
 }
 #fh5co-counter .overlay,
 #fh5co-event .overlay {
@@ -690,9 +682,6 @@ h1, h2, h3, h4, h5, h6, figure {
   bottom: 0;
   content: "";
   z-index: 80;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
   -webkit-border-radius: 7px;
   -moz-border-radius: 7px;
   -ms-border-radius: 7px;
@@ -851,20 +840,20 @@ form label {
   margin-bottom: 0px;
   font-size: 100px;
   line-height: 1.5;
-  font-family: "Sacramento", Arial, serif;
+  font-family: "Parisienne", Arial, serif;
 }
 @media screen and (max-width: 768px) {
   #fh5co-header .display-tc h1,
   #fh5co-counter .display-tc h1,
   .fh5co-cover .display-tc h1 {
-    font-size: 40px;
+    font-size: 50px;
   }
 }
 @media screen and (max-width: 480px) {
   #fh5co-header .display-tc h1,
   #fh5co-counter .display-tc h1,
   .fh5co-cover .display-tc h1 {
-    font-size: 30px;
+    font-size: 50px;
   }
 }
 #fh5co-header .display-tc h2,
@@ -958,6 +947,12 @@ form label {
   position: relative;
   /* animation: pulse 1s ease infinite; */
 }
+@media screen and (max-width: 768px) {
+  .simply-countdown > .simply-section {
+    width: 75px;
+    height: 75px;
+  }
+}
 
 @keyframes pulse {
   0% {
@@ -989,12 +984,32 @@ form label {
   font-size: 30px;
   /* amounts */
 }
+@media screen and (max-width: 768px) {
+  .simply-countdown > .simply-section .simply-amount {
+    font-size: 25px;
+  }
+}
 
 .simply-countdown > .simply-section .simply-word {
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
   font-size: 12px;
   /* words */
+}
+@media screen and (max-width: 768px) {
+  .simply-countdown > .simply-section .simply-word {
+    font-size: 10px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .simply-countdown > .simply-section .simply-amount,
+  .simply-countdown > .simply-section .simply-word {
+    height: 75px;
+    width: 75px;
+    line-height: 2.950;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
 }
 
 #fh5co-testimonial,
@@ -1072,7 +1087,7 @@ form label {
   }
 }
 .couple-half h3 {
-  font-family: "Sacramento", Arial, serif;
+  font-family: "Parisienne", Arial, serif;
   color: #ffffff;
   font-size: 30px;
 }
@@ -1190,7 +1205,7 @@ form label {
   line-height: 1.5;
   font-weight: bold;
   color: #951427;
-  font-family: "Sacramento", Arial, serif;
+  font-family: "Parisienne", Arial, serif;
 }
 @media screen and (max-width: 768px) {
   .fh5co-heading h2 {
@@ -1310,6 +1325,7 @@ form label {
 @media screen and (max-width: 768px) {
   .feature-left .icon {
     margin-right: 5%;
+    margin-top: 15px;
   }
 }
 .feature-left .icon i {
@@ -1326,6 +1342,7 @@ form label {
   .feature-left .feature-copy {
     width: 70%;
     float: left;
+    margin-top: 20px;
   }
 }
 .feature-left .feature-copy h3 {
@@ -1368,7 +1385,7 @@ form label {
   color: #fff;
 }
 #fh5co-started .fh5co-heading p {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgb(255, 255, 255);
 }
 #fh5co-started .form-control {
   background: rgba(255, 255, 255, 0.2);
@@ -1376,9 +1393,6 @@ form label {
   color: #fff;
   font-size: 16px !important;
   width: 100%;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
 }
 #fh5co-started .form-control::-webkit-input-placeholder {
   color: #fff;
@@ -1465,9 +1479,6 @@ form label {
   -ms-transform: translateX(270px);
   -o-transform: translateX(270px);
   transform: translateX(270px);
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
 }
 .offcanvas #fh5co-offcanvas {
   -moz-transform: translateX(0px);
@@ -1515,9 +1526,6 @@ form label {
   content: "\e921";
   font-size: 20px;
   color: rgba(255, 255, 255, 0.2);
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
 }
 #fh5co-offcanvas ul li.offcanvas-has-dropdown.active a:after {
   -webkit-transform: rotate(-180deg);
@@ -1542,9 +1550,6 @@ form label {
   z-index: 999;
   opacity: 0;
   visibility: hidden;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
 }
 .gototop.active {
   opacity: 1;
@@ -1595,7 +1600,6 @@ form label {
   text-transform: uppercase;
   text-indent: -55px;
   background: #252525;
-  transition: all .2s ease-out;
 }
 .fh5co-nav-toggle i::before, .fh5co-nav-toggle i::after {
   content: '';
@@ -1604,7 +1608,6 @@ form label {
   background: #252525;
   position: absolute;
   left: 0;
-  transition: all .2s ease-out;
 }
 .fh5co-nav-toggle.fh5co-nav-white > i {
   color: #fff;
@@ -1668,7 +1671,8 @@ form label {
 }
 @media screen and (max-width: 768px) {
   .fh5co-nav-toggle {
-    display: block;
+    /* display: block; */
+    display: none;
   }
 }
 
@@ -1682,9 +1686,6 @@ form label {
   -moz-border-radius: 30px;
   -ms-border-radius: 30px;
   border-radius: 30px;
-  -webkit-transition: 0.5s;
-  -o-transition: 0.5s;
-  transition: 0.5s;
   padding: 8px 20px;
 }
 .btn.btn-md {
@@ -1797,9 +1798,6 @@ form label {
   background: none;
   border: 2px solid gray;
   font-size: 16px;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
 }
 .btn-outline:hover, .btn-outline:focus, .btn-outline:active {
   box-shadow: none;
@@ -1807,9 +1805,6 @@ form label {
 
 .btn.with-arrow {
   position: relative;
-  -webkit-transition: 0.3s;
-  -o-transition: 0.3s;
-  transition: 0.3s;
 }
 .btn.with-arrow i {
   visibility: hidden;
@@ -1818,9 +1813,6 @@ form label {
   right: 0px;
   top: 50%;
   margin-top: -8px;
-  -webkit-transition: 0.2s;
-  -o-transition: 0.2s;
-  transition: 0.2s;
 }
 .btn.with-arrow:hover {
   padding-right: 50px;
