@@ -1,446 +1,296 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Billy & Veronica's Wedding</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FREEHTML5.CO" />
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Billy & Veronica's Wedding Website</title>
+    <style>
+        html, body {
+            margin: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #dialogText {
+            color: white;
+            background-color: #333333;
+        }
+        
+        #dialogWrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: table;
+            background-color: #EEEEEE;
+        }
+        
+        #dialogWrapCell {
+            display: table-cell;
+            text-align: center;
+            vertical-align: middle;
+        }
+        
+        #mainDialog {
+            max-width: 400px;
+            margin: 5px;
+            border: solid #AAAAAA 1px;
+            border-radius: 10px;
+            box-shadow: 3px 3px 5px 3px #AAAAAA;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: #FFFFFF;
+            overflow: hidden;
+            text-align: left;
+        }
+        #mainDialog > * {
+            padding: 10px 30px;
+        }
+        #passArea {
+            padding: 20px 30px;
+            background-color: white;
+        }
+        #passArea > * {
+            margin: 5px auto;
+        }
+        #pass {
+            width: 100%;
+            height: 40px;
+            font-size: 30px;
+        }
+        
+        #messageWrapper {
+            float: left;
+            vertical-align: middle;
+            line-height: 30px;
+        }
+        
+        .notifyText {
+            display: none;
+        }
+        
+        #invalidPass {
+            color: red;
+        }
+        
+        #success {
+            color: green;
+        }
+        
+        #submitPass {
+            font-size: 20px;
+            border-radius: 5px;
+            background-color: #E7E7E7;
+            border: solid gray 1px;
+            float: right;
+            cursor: pointer;
+        }
+        #contentFrame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        #attribution {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 10px;
+            font-weight: bold;
+            font-size: 0.8em;
+        }
+        #attribution, #attribution a {
+            color: #999;
+        }
+        .error {
+            display: none;
+            color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <iframe id="contentFrame" frameBorder="0" allowfullscreen></iframe>
+    <div id="dialogWrap">
+        <div id="dialogWrapCell">
+            <div id="mainDialog">
+                <div id="dialogText" style="text-align:center;">Welcome to Billy & Veronica's Wedding Website!</div>
+                <div id="passArea">
+                    <p id="passwordPrompt" style="text-align:center;">Please enter the password found on your Save the Date.</p>
+                    <input id="pass" type="password" name="pass" autofocus>
+                    <div>
+                        <span id="messageWrapper">
+                            <span id="invalidPass" class="error">Sorry, please try again.</span>
+                            <span id="trycatcherror" class="error">Sorry, something went wrong.</span>
+                            <span id="success" class="notifyText">Success!</span>
+                            &nbsp;
+                        </span>
+                        <button id="submitPass" type="button">Submit</button>
+                        <div style="clear: both;"></div>
+                    </div>
+                </div>
+                <div id="securecontext" class="error">
+                    <p>
+                        Sorry, but password protection only works over a secure connection. Please load this page via HTTPS.
+                    </p>
+                </div>
+                <div id="nocrypto" class="error">
+                    <p>
+                        Your web browser appears to be outdated. Please visit this page using a modern browser.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    (function() {
 
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Rochester&display=swap" rel="stylesheet">
-	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
-	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
+        var pl = "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";
+        
+        var submitPass = document.getElementById('submitPass');
+        var passEl = document.getElementById('pass');
+        var invalidPassEl = document.getElementById('invalidPass');
+        var trycatcherror = document.getElementById('trycatcherror');
+        var successEl = document.getElementById('success');
+        var contentFrame = document.getElementById('contentFrame');
+        
+        // Sanity checks
 
-	<!-- Magnific Popup -->
-	<link rel="stylesheet" href="css/magnific-popup.css">
+        if (pl === "") {
+            submitPass.disabled = true;
+            passEl.disabled = true;
+            alert("This page is meant to be used with the encryption tool. It doesn't work standalone.");
+            return;
+        }
 
-	<!-- Owl Carousel  -->
-	<link rel="stylesheet" href="css/owl.carousel.min.css">
-	<link rel="stylesheet" href="css/owl.theme.default.min.css">
+        if (!isSecureContext) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#securecontext").style.display = "block";
+            return;
+        }
 
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+        if (!crypto.subtle) {
+            document.querySelector("#passArea").style.display = "none";
+            document.querySelector("#nocrypto").style.display = "block";
+            return;
+        }
+        
+        function str2ab(str) {
+            var ustr = atob(str);
+            var buf = new ArrayBuffer(ustr.length);
+            var bufView = new Uint8Array(buf);
+            for (var i=0, strLen=ustr.length; i < strLen; i++) {
+                bufView[i] = ustr.charCodeAt(i);
+            }
+            return bufView;
+        }
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+        async function deriveKey(salt, password) {
+            const encoder = new TextEncoder()
+            const baseKey = await crypto.subtle.importKey(
+                'raw',
+                encoder.encode(password),
+                'PBKDF2',
+                false,
+                ['deriveKey'],
+            )
+            return await crypto.subtle.deriveKey(
+                { name: 'PBKDF2', salt, iterations: 100000, hash: 'SHA-256' },
+                baseKey,
+                { name: 'AES-GCM', length: 256 },
+                true,
+                ['decrypt'],
+            )
+        }
+        
+        async function doSubmit(evt) {
+            submitPass.disabled = true;
+            passEl.disabled = true;
 
-	</head>
-	<body>
-		
-	<div class="fh5co-loader"></div>
-	
-	<div id="page">
-	<nav class="fh5co-nav" role="navigation">
-		<div class="container">
-			<div class="row">
-				<div class="col-xs-10 text-right menu-1">
-					<ul>
-						<li class="active"><a href="index.html">Home</a></li>
-						<li><a href="index.html#fh5co-couple-story">Event Timeline</a></li>
-						<li><a href="index.html#fh5co-event">Getting There</a></li>
-						<li><a href="index.html#fh5co-services">Location & Property Rules</a></li>
-						<li><a href="index.html#fh5co-started">RSVP</a></li>
-						<li><a href="index.html#fh5co-gallery">Registry & Gifts</a></li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</nav>
+            let iv, ciphertext, key;
+            
+            try {
+                var unencodedPl = str2ab(pl);
 
-	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-8 col-sm-offset-2 text-center">
-					<div class="display-t">
-						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<h1>Billy &amp; Veronica</h1>
-							<h2>Ciao friends & family!! We can't wait to celebrate with you!</h2>
-							<h2>Please scroll down for more event details.</h2>
-							<div class="simply-countdown simply-countdown-one"></div>
-								<!--
-							<div class="couple-wrap animate-box">
-								<div class="couple-half">
-									<div class="groom">
-										<img src="images/groom.jpg" alt="groom" class="img-responsive">
-									</div>
-									<div class="desc-groom">
-										<h3>Billy Burgess</h3>
-										<p>Loves sports. Hates olives and being proven wrong.</p>
-									</div>
-								</div>
-								<p class="heart text-center"><i class="icon-heart2"></i></p>
-								<div class="couple-half">
-									<div class="bride">
-										<img src="images/bride.jpg" alt="groom" class="img-responsive">
-									</div>
-									<div class="desc-bride">
-										<h3>Veronica Martin</h3>
-										<p>Loves Reality TV. Hates bugs and group texts.</p>
-									</div>
-								</div>
-							</div> 
-								-->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+                const salt = unencodedPl.slice(0, 32)
+                iv = unencodedPl.slice(32, 32 + 16)
+                ciphertext = unencodedPl.slice(32 + 16)
 
-	  <!-- 
-	//////////////////////////////////////////////////////
-	<div id="fh5co-couple">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2>Ciao Friends & Family!</h2>
-					<p>Please visit the below sections of this page for important information.</p>
-				</div>
-			</div>
-			<div class="couple-wrap animate-box">
-				<div class="couple-half">
-					<div class="groom">
-						<img src="images/groom.jpg" alt="groom" class="img-responsive">
-					</div>
-					<div class="desc-groom">
-						<h3>Billy Burgess</h3>
-						<p>Loves sports. Hates olives and being proven wrong.</p>
-					</div>
-				</div>
-				<p class="heart text-center"><i class="icon-heart2"></i></p>
-				<div class="couple-half">
-					<div class="bride">
-						<img src="images/bride.jpg" alt="groom" class="img-responsive">
-					</div>
-					<div class="desc-bride">
-						<h3>Veronica Martin</h3>
-						<p>Loves Reality TV. Hates bugs and group texts.</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	//////////////////////////////////////////////////////
-	 -->
+                key = await deriveKey(salt, passEl.value);
+            } catch (e) {
+                trycatcherror.style.display = "inline";
+                console.error(e);
+                return;
+            }
 
+            try {
+                const decryptedArray = new Uint8Array(
+                    await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ciphertext)
+                );
 
-	 <div id="fh5co-couple-story">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-					<h2>Timeline of Events</h2>
-					<h3>May 21st-26th, 2026</h3>
-					<h3>Enjoy 5 days with us in a private Tuscan Estate & Vineyard!</h3>
-					<!-- <span>insert Lavacchio address here</span> -->
-				</div>
-			</div>
+                let decrypted = new TextDecoder().decode(decryptedArray);
 
-			<div class="row">
-				<div class="col-md-12 col-md-offset-0">
-					<ul class="timeline animate-box">
-						<li class="animate-box">
-							<div class="timeline-badge" style="background-image:url(images/arrival.jpg);"></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Arrival Day</h3>
-									<span class="date">Thursday May 21st, 2026</span>
-								</div>
-								<div class="timeline-body">
-									<p>The first night rooms will be available. There are no formal events this night but please join us for a glass of wine!</p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge" style="background-image:url(images/poolside.jpg);"></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Open Activity Day</h3>
-									<span class="date">Friday May 22nd, 2026</span>
-								</div>
-								<div class="timeline-body">
-									<p>Choose your own adventure! Options include Wine Tour, Wine Tasting, Massage, Cooking Class, Truffle Hunting, Horseback Riding, or just hang by the pool!</p>
-								</div>
-							</div>
-						</li>
-						<li class="animate-box">
-							<div class="timeline-badge" style="background-image:url(images/tablebackground.jpg);"></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">The Day Before</h3>
-									<span class="date">Saturday May 23rd, 2026</span>
-								</div>
-								<div class="timeline-body">
-									<p>Morning & early afternoon free for more activities.  Rehearsal for the wedding party and a dinner for all guests later that evening.</p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge" style="background-image:url(images/squarekiss.jpg);"></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Wedding Day</h3>
-									<span class="date">Sunday May 24th, 2026</span>
-								</div>
-								<div class="timeline-body">
-									<p>More details to come!! Wedding and reception will take place on property this afternoon/evening.</p>
-								</div>
-							</div>
-						</li>
-						<li class="animate-box">
-							<div class="timeline-badge" style="background-image:url(images/foodpatio.jpg);"></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">The Day After</h3>
-									<span class="date">Monday May 25th, 2026</span>
-								</div>
-								<div class="timeline-body">
-									<p>Rest & Recover during the day. Any activies you'd still like to do are available to you! We will host a goodbye event in the afternoon.</p>
-								</div>
-							</div>
-						</li>
-						<li class="timeline-inverted animate-box">
-							<div class="timeline-badge" style="background-image:url(images/courtyard.jpg);"></div>
-							<div class="timeline-panel">
-								<div class="timeline-heading">
-									<h3 class="timeline-title">Departure Day</h3>
-									<span class="date">Tuesday May 25th, 2026</span>
-								</div>
-								<div class="timeline-body">
-									<p>Have breakfast, say your goodbyes, and depart paradise.</p>
-								</div>
-							</div>
-						</li>
-			    	</ul>
-				</div>
-			</div>
-		</div>
-	</div>
+                if (decrypted === "") throw "No data returned";
 
+                const basestr = '<base href="." target="_top">';
+                const anchorfixstr = `
+                    <script>
+                        Array.from(document.links).forEach((anchor) => {
+                            const href = anchor.getAttribute("href");
+                            if (href.startsWith("#")) {
+                                anchor.addEventListener("click", function(e) {
+                                    e.preventDefault();
+                                    const targetId = this.getAttribute("href").substring(1);
+                                    const targetEl = document.getElementById(targetId);
+                                    targetEl.scrollIntoView();
+                                });
+                            }
+                        });
+                    <\/script>
+                `;
+                
+                // Set default iframe link targets to _top so all links break out of the iframe
+                if (decrypted.includes("<head>")) decrypted = decrypted.replace("<head>", "<head>" + basestr);
+                else if (decrypted.includes("<!DOCTYPE html>")) decrypted = decrypted.replace("<!DOCTYPE html>", "<!DOCTYPE html>" + basestr);
+                else decrypted = basestr + decrypted;
 
-	<div id="fh5co-event" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-10 col-md-offset-1 text-center fh5co-heading">
-					<h2>Travel Logistics</h2>
-					<p>Lavacchio is 30km (hell yeah, metric system baby!) east of the beautiful city of Florence. Please plan on coordinating your own travel to the estate as our guests will be arriving at various days and times.</p>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-6">
-					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="icon-aircraft"></i>
-						</span>
-						<div class="feature-copy">
-							<h4>Flying In</h4>
-							<h5>The closest major airport is Florence (Amerigo Vespucci), where you should be able to arrange transportation (~45min car ride) to Lavacchio.</h5>
-						</div>
-					</div>
-
-					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="icon-address"></i>
-						</span>
-						<div class="feature-copy">
-							<h4>Other Nearby Major Cities</h4>
-							<h5>The other major airports to get in & out of are Rome (1.5 hour train south) and Milan (2 hour train north). We suggest getting a train from these cities to Florence then getting a cab/uber from the Firenze train station to Lavacchio.</h5>
-						</div>
-					</div>
-
-					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="icon-map"></i>
-						</span>
-						<div class="feature-copy">
-							<h4>Rental Cars</h4>
-							<h5>We are excited to host all of the events for the wedding on property, so a rental car is not necessary. If you would like to rent a car for a side trip, please let us know & be careful on the narrow roads! We can ask about parking availability for a limited number of vehicles. </h5>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="col-sm-6 animate-box">
-						<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2879.122142106562!2d11.445033962117932!3d43.8118258209745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132ba9942e2a05db%3A0x7195562c2814b127!2sFattoria%20Lavacchio%20AgriResort!5e0!3m2!1sen!2sus!4v1738291366755!5m2!1sen!2sus" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="fh5co-services" class="fh5co-section-gray">
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-10 col-md-offset-1 text-center fh5co-heading">
-					<h2>Property Information & Rules</h2>
-					<p>Fattoria Lavacchio is an incredible certified Organic Winery making some of the best Chianti in all of Italy! But that means it comes with some rules...</p>
-					<p>Italians take the organic label very seriously! So unfortunately, public consumption of non-certified Italian organic products on the property is not allowed. So no Peronis and no Diet Coke. Sorry!  However, Lavacchio will provide organic alternatives available to be charged to your rooms if you need a snack or soda. Please don't break the rules on this!  If you bring outside products, please ensure they stay in your bedroom.</p>
-					<p>You can read more about Lavacchio's sustainability principles and story <a href="https://fattorialavacchio.com/en/the-vineyard-estate/la-fattoria/biodynamics/">here.<strong></strong></a></p>
-				</div>
-			</div>
-
-			<div class="col-md-10 col-md-offset-1 animate-box text-center fh5co-heading">
-				<div class="fh5co-video fh5co-bg" style="background-image: url(images/locationbackground.jpg); "></div>
-			</div>
-
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1">
-					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="icon-home"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>Villas</h3>
-							<p>Lavacchio consists of 4 separate villas, each with their own character (and 2 pools, no big deal). We have space for everyone to stay on property with us. No need to make any reservations - we'll provide room assignments at a later date.<p>
-							<p>We are happy to cover the cost of your room as a thank you for traveling all this way to celebrate with us! Even if you can only make it for a couple days, we'd still love to see you!</p>
-					</div>
-
-					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="icon-drink"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>What you are responsible for</h3>
-							<p>We will also be covering costs for breakfast each day, dinner the evening before the wedding, food and drink for the wedding/reception, and a meal the day after the wedding.</p>
-							<p>There will be some meals and activities you may wish to enjoy outside what we cover.  You are able to charge any additional costs (meals, drinks, snacks, activities) to your room and settle up with Lavacchio at the end of your stay. Reminder - please don't consume outside food/beverage outside of your room unless purchased on property. </p>
-						</div>
-					</div>
-					 	<!-- 
-					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="icon-cake"></i>
-						</span>
-						<div class="feature-copy">
-							<h3>What else do we need to say here?</h3>
-							<p>Placeholder description. I'm not sure how to change the little images to the left so I gotta figure that out lol.</p>
-							<p> </p>
-						</div>
-					</div>
-						-->
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-
-	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/vineyard.jpg);">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row animate-box">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Are You Attending?</h2>
-					<p>Please initially RSVP by August 31st, 2025 by clicking the link below and completing the google form.</p>
-				</div>
-			</div>
-			<div class="row animate-box">
-				<div class="col-md-10 col-md-offset-1 text-center">
-					<a href="https://forms.gle/36qJPAhSPYQCEhG2A" target="_blank"><button type="button" class="btn btn-default btn-block">Click this button to RSVP!</button></a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div id="fh5co-gallery" class="fh5co-section-gray">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-10 col-md-offset-1 text-center fh5co-heading animate-box">
-					<h2>Registry & Gifts</h2>
-					<p>We are so grateful for your presence at our wedding! If you'd like to gift us something, in lieu of a registry, you can contribute by <a href="https://account.venmo.com/u/billiamburgess" target="_blank">Venmoing @billiamburgess</a>. All contributions will go towards our upcoming Virginia Beach home purchase and furnishings!</p>
-				</div>
-				<div class="col-md-10 col-md-offset-1 text-center">
-					<a href="https://account.venmo.com/u/billiamburgess" target="_blank"><button type="button" class="btn btn-default btn-block">Click here to contribute!</button></a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-	<footer id="fh5co-footer" role="contentinfo">
-		<div class="container">
-
-			<div class="row copyright">
-				<div class="col-md-12 text-center">
-					<p>
-						<small class="block">Questions? Please reach out to Billy or Veronica!</small> 
-						<br>
-						<small class="block"><a href="index.html">Click Here to go back to the top!!</a></small> 
-						<br>
-						<small class="block">This whole website was designed by Billy using base code from <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a></small>
-					</p>
-				</div>
-			</div>
-
-		</div>
-	</footer>
-	</div>
-
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-	</div>
-	
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Carousel -->
-	<script src="js/owl.carousel.min.js"></script>
-	<!-- countTo -->
-	<script src="js/jquery.countTo.js"></script>
-
-	<!-- Stellar -->
-	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Magnific Popup -->
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/magnific-popup-options.js"></script>
-
-	<!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
-	<script src="js/simplyCountdown.js"></script>
-	<!-- Main -->
-	<script src="js/main.js"></script>
-
-	<script>
-    var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);
-
-    // default example
-    simplyCountdown('.simply-countdown-one', {
-        year: 2026,
-        month: 5,
-        day: 24
-    });
-
-    //jQuery example
-    $('#simply-countdown-losange').simplyCountdown({
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate(),
-        enableUtc: false
-    });
-</script>
-
-	</body>
+                // Fix fragment links
+                if (decrypted.includes("</body>")) decrypted = decrypted.replace("</body>", anchorfixstr + '</body>');
+                else if (decrypted.includes("</html>")) decrypted = decrypted.replace("</html>", anchorfixstr + '</html>');
+                else decrypted = decrypted + anchorfixstr;
+                
+                contentFrame.srcdoc = decrypted;
+                
+                successEl.style.display = "inline";
+                setTimeout(function() {
+                    dialogWrap.style.display = "none";
+                }, 1000);
+            } catch (e) {
+                invalidPassEl.style.display = "inline";
+                passEl.value = "";
+                submitPass.disabled = false;
+                passEl.disabled = false;
+                console.error(e);
+                return;
+            }
+        }
+        
+        submitPass.onclick = doSubmit;
+        passEl.onkeypress = function(e){
+            if (!e) e = window.event;
+            var keyCode = e.keyCode || e.which;
+            invalidPassEl.style.display = "none";
+            if (keyCode == '13'){
+              // Enter pressed
+              doSubmit();
+              return false;
+            }
+        }
+    })();
+    </script>
+  </body>
 </html>
-
