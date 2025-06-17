@@ -317,7 +317,7 @@ h1, h2, h3, h4, h5, h6, figure {
   display: table;
   width: 100%;
   position: relative;
-  bottom: 80px;
+  bottom: 50px;
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover .display-t,
